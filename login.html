@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auth | Instagram Guide</title>
+
+<link rel="stylesheet" href="css/style.css">
+<script src="js/darkmode.js" defer></script>
+
+<style>
+.auth-box{
+    max-width:420px;
+    margin:60px auto;
+    background:var(--card);
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+.auth-tabs{
+    display:flex;
+    justify-content:space-around;
+    margin-bottom:20px;
+}
+.auth-tabs button{
+    flex:1;
+    background:none;
+    color:var(--accent);
+    font-weight:600;
+}
+.auth-tabs button.active{
+    border-bottom:3px solid var(--accent);
+}
+.auth-form{
+    display:none;
+}
+.auth-form.active{
+    display:block;
+}
+.auth-box input{
+    width:100%;
+    padding:10px;
+    margin:8px 0 15px;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+.msg{
+    font-size:14px;
+    margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🔐 Authentication</h1>
+<p>Login & Signup (Front-End Demo)</p>
+</header>
+
+<!-- ================= NAVBAR ================= -->
+<nav>
+<div class="nav-container">
+
+<!-- MENU BUTTON -->
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<!-- NAV LINKS -->
+<div class="nav-links" id="navLinks">
+<a href="index.html">Home</a>
+<a href="rules.html">Rules</a>
+<a href="likes.html">Likes</a>
+<a href="audio.html">Audio</a>
+<a href="cover.html">Cover</a>
+<a href="downloads.html">Downloads</a>
+<a href="admin.html" class="admin-link">Admin</a>
+<a href="login.html">Login</a>
+</div>
+
+<!-- DARK MODE -->
+<button onclick="toggleDark()">🌙</button>
+
+</div>
+</nav>
+
+<div class="container">
+
+<section class="auth-box">
+
+<!-- TABS -->
+<div class="auth-tabs">
+<button id="loginTab" class="active" onclick="showLogin()">Login</button>
+<button id="signupTab" onclick="showSignup()">Sign Up</button>
+</div>
+
+<!-- LOGIN FORM -->
+<div id="loginForm" class="auth-form active">
+<h2>Login</h2>
+
+<label>Email</label>
+<input type="email" id="loginEmail" placeholder="admin@example.com">
+
+<label>Password</label>
+<input type="password" id="loginPass" placeholder="••••••">
+
+<button style="width:100%;" onclick="fakeLogin()">Login</button>
+
+<p id="loginMsg" class="msg" style="color:red;"></p>
+</div>
+
+<!-- SIGNUP FORM -->
+<div id="signupForm" class="auth-form">
+<h2>Create Account</h2>
+
+<label>Name</label>
+<input type="text" id="name" placeholder="Your Name">
+
+<label>Email</label>
+<input type="email" id="email" placeholder="you@example.com">
+
+<label>Password</label>
+<input type="password" id="pass" placeholder="••••••">
+
+<button style="width:100%;" onclick="fakeSignup()">Sign Up</button>
+
+<p id="signupMsg" class="msg" style="color:green;"></p>
+</div>
+
+</section>
+
+</div>
+
+<footer>
+© 2026 Instagram Algorithm Guide | Auth Demo
+</footer>
+
+<script>
+/* TAB SWITCH */
+function showLogin(){
+    document.getElementById("loginForm").classList.add("active");
+    document.getElementById("signupForm").classList.remove("active");
+    document.getElementById("loginTab").classList.add("active");
+    document.getElementById("signupTab").classList.remove("active");
+}
+
+function showSignup(){
+    document.getElementById("signupForm").classList.add("active");
+    document.getElementById("loginForm").classList.remove("active");
+    document.getElementById("signupTab").classList.add("active");
+    document.getElementById("loginTab").classList.remove("active");
+}
+
+/* FAKE LOGIN */
+function fakeLogin(){
+    const email = document.getElementById("loginEmail").value;
+    const pass  = document.getElementById("loginPass").value;
+
+    if(email && pass){
+        window.location.href = "admin.html";
+    }else{
+        document.getElementById("loginMsg").innerText =
+        "Please enter email and password (demo validation)";
+    }
+}
+
+/* FAKE SIGNUP */
+function fakeSignup(){
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const pass = document.getElementById("pass").value;
+
+    if(name && email && pass){
+        document.getElementById("signupMsg").innerText =
+        "Account created successfully (demo). Please login.";
+        showLogin();
+    }else{
+        document.getElementById("signupMsg").innerText =
+        "Please fill all fields (demo validation)";
+    }
+}
+</script>
+
+</body>
+</html>

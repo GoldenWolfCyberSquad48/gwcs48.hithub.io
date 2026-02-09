@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel | Instagram Algorithm Guide</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+.admin-login{
+    max-width:420px;
+    margin:40px auto;
+    background:var(--card);
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+.admin-login input{
+    width:100%;
+    padding:10px;
+    margin:8px 0 15px;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+.admin-dashboard{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+}
+.admin-card{
+    background:var(--card);
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.07);
+}
+.admin-card h3{
+    color:var(--accent);
+}
+.note{
+    font-size:14px;
+    color:gray;
+}
+</style>
+
+<script src="js/darkmode.js" defer></script>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+<h1>🛠 Admin Panel</h1>
+<p>Management Dashboard (UI Only)</p>
+</header>
+
+<!-- ================= NAVBAR ================= -->
+<nav>
+<div class="nav-container">
+
+<!-- MENU BUTTON -->
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<!-- NAV LINKS -->
+<div class="nav-links" id="navLinks">
+<a href="index.html">Home</a>
+<a href="admin.html" class="admin-link">Admin</a>
+<a href="login.html">Login</a>
+</div>
+
+<!-- DARK MODE -->
+<button onclick="toggleDark()">🌙</button>
+
+</div>
+</nav>
+
+<!-- ================= MAIN CONTENT ================= -->
+<div class="container">
+
+<!-- LOGIN -->
+<section class="admin-login">
+<h2>🔐 Admin Login</h2>
+
+<label>Username</label>
+<input type="text" placeholder="admin">
+
+<label>Password</label>
+<input type="password" placeholder="••••••">
+
+<button style="width:100%;">Login</button>
+
+<p class="note">
+This is a front-end demo admin panel.  
+Authentication & database will be added in future.
+</p>
+</section>
+
+<br>
+
+<!-- DASHBOARD -->
+<section>
+<h2>📊 Dashboard Overview</h2>
+
+<div class="admin-dashboard">
+
+<div class="admin-card">
+<h3>Total Pages</h3>
+<p>Home, Signals, Rules, Downloads</p>
+</div>
+
+<div class="admin-card">
+<h3>PDF Resources</h3>
+<p>4 Topic-Wise Guides</p>
+</div>
+
+<div class="admin-card">
+<h3>Dark Mode</h3>
+<p>Enabled</p>
+</div>
+
+<div class="admin-card">
+<h3>Backend Status</h3>
+<p>Not Connected</p>
+</div>
+
+</div>
+
+<p class="note">
+All data shown above is static for demo & interview purpose.
+</p>
+</section>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+© 2026 Instagram Algorithm Guide <br>
+Admin Panel | UI Demo
+</footer>
+
+</body>
+</html>
